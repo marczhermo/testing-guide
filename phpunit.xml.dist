@@ -25,6 +25,8 @@
     <php>
         <ini name="memory_limit" value="1G" />
         <ini name="date.timezone" value="Pacific/Auckland" />
+        <!-- Flush on tests, to ensure test classes are auto loaded correctly -->
+        <get name="flush" value="1" />
     </php>
 
     <filter>
