@@ -88,7 +88,7 @@ jobs:
             sudo docker-php-ext-install zip bcmath pdo_mysql mysqli
       - run: composer install -n --prefer-dist
       # run tests with phpunit
-      - run: ./vendor/bin/phpunit
+      - run: ./vendor/bin/phpunit --log-junit silverstripe-cache/artifacts/junit.xml
       - store_test_results:
           path: silverstripe-cache/artifacts
       - store_artifacts:
