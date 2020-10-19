@@ -19,30 +19,17 @@
 -->
 <phpunit bootstrap="vendor/silverstripe/framework/tests/bootstrap.php" colors="true">
     <testsuite name="Default">
-        <directory>app/tests</directory>
-        <directory>vendor/silverstripe/cms/tests/php</directory>
-        <directory>vendor/silverstripe/framework/tests/php</directory>
+        <directory>app/tests/php</directory>
     </testsuite>
 
-    <!-- framework only -->
-    <testsuite name="framework">
-        <directory>vendor/silverstripe/framework/tests/php/</directory>
-    </testsuite>
+    <php>
+        <ini name="memory_limit" value="1G" />
+        <ini name="date.timezone" value="Pacific/Auckland" />
+    </php>
 
-    <!-- other core components -->
-    <testsuite name="core">
-        <directory>vendor/silverstripe/assets/tests/php/</directory>
-        <directory>vendor/silverstripe/versioned/tests/php/</directory>
-    </testsuite>
-
-    <!-- admin components -->
-    <testsuite name="admin">
-        <directory>vendor/silverstripe/admin/tests/php/</directory>
-        <directory>vendor/silverstripe/asset-admin/tests/php/</directory>
-        <directory>vendor/silverstripe/campaign-admin/tests/php/</directory>
-        <directory>vendor/silverstripe/cms/tests/</directory>
-        <directory>vendor/silverstripe/graphql/tests/</directory>
-        <directory>vendor/silverstripe/reports/tests/</directory>
-        <directory>vendor/silverstripe/siteconfig/tests/php/</directory>
-    </testsuite>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">app/src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
